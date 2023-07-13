@@ -1,0 +1,74 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 1rem 2.8rem;
+    border-radius: 1.5rem;
+    gap: 2rem;
+    color: white;
+    background-color: rgb(24,24,24);
+    margin: 3.5rem auto;
+    box-shadow: 0 0 10px rgba(81, 75, 75, 0.5);
+}
+.brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.brand img{
+    height: 50px;
+    width: 50px;
+}
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    font-size: 1.25rem;
+}
+.register input{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid rgb(99, 2, 141);
+    outline: none;
+    width: 400px;
+    background-color: transparent;
+    color: white;
+    font-size: 1.13rem;
+}
+.register input:focus{
+    border: 2px solid rgb(72, 3, 141);
+    background-color: rgb(34, 33, 33);
+}
+.register button{
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+    outline: none;
+    width: 400px;
+    border: none;
+    background-color: rgb(130, 50, 164);
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1.13rem;
+}
+.register button:hover
+{
+    background-color: rgb(148, 15, 205);
+}
+.already{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.13rem;
+}
+.already a{
+    color: rgb(130, 50, 164);
+    text-decoration: none;
+}

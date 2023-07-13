@@ -1,0 +1,101 @@
+.cover{
+    height:80%;
+    background-color: rgba(29, 29, 29, 0);
+    width: 100%;  
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.other{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 0.2rem;
+    background-color: rgb(34, 31, 31);
+    padding: 10px;
+    overflow: auto;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+::-webkit-scrollbar {
+    width: 0;
+}
+.user{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height:fit-content;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 12px;
+    transition: 0.2s;
+    gap: 1rem;
+    /* background-color: rgb(141, 84, 215); */
+    
+    cursor: pointer;
+}
+.user:hover{
+    background-color: rgb(41, 39, 44);
+}
+.prof{
+    height: 20%;
+    width: 100%;
+    background-color: rgb(39, 36, 36);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    display: flex;
+}
+
+.me{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.me .userName{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin: 0.5rem 0rem;
+    width: 100px;
+    text-align: center;
+}
+.feature{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.feature button{
+    width: 60%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(205, 196, 217);
+    color: rgb(41, 39, 39);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.contactHeader{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-left: 10px;
+    /* background-color: rgb(29, 26, 26); */
+    justify-content: flex-start;
+    align-items: center;
+    width: 95%;
+    box-sizing: border-box;
+}

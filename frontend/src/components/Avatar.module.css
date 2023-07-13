@@ -1,0 +1,61 @@
+.avatarsPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    gap: 2rem;
+    flex-direction: column;
+    color: white;
+}
+.avatarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 150px;
+    border-radius: 15px;
+    gap:2rem;
+    background-color: rgb(46, 44, 44);
+    overflow: hidden;
+}
+.avatar{
+    display: flex;
+    justify-content: center;
+    width:fit-content;
+    height:fit-content;
+    border-radius: 50%;
+}
+.avatar img{
+    width: 80px;
+    height: 80px;
+}
+.avatar img:hover{
+    cursor: pointer;
+}
+.selected{
+    border: 0.3rem solid #7b4ff4;
+    padding: 3px;
+}
+.loader{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #7b4ff4;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #5f3dc4;
+}
