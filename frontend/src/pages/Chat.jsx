@@ -6,14 +6,14 @@ import Contacts from "../components/chat/Contacts";
 import chatBot from "../assets/robot.gif";
 import ChatContainer from "../components/chat/ChatContainer";
 const Chat = () => {
-  const [session, setSession] = useState(0);
+  const [session, setSession] = useState(true);
   const [userSlection, setUserSelection] = useState(undefined);
   const [currentName, setCurrentName] = useState("");
   const loaderData = useLoaderData();
 
-  // console.log(loaderData.users)
+  console.log(loaderData.users)
   setInterval(() => {
-    setSession(session + 1);
+    setSession(!session);
   }, 10000);
   const navigate = useNavigate();
   useEffect(() => {
@@ -28,12 +28,12 @@ const Chat = () => {
         console.log(err);
         navigate("/login");
       });
-  }, [session, navigate]);
+  }, [ session,navigate]);
   const handleSelection = (id) => { 
     setUserSelection(id);
   };
   const defaultChat = (
-    <div>
+    <>
       <img src={chatBot} height="500px" alt="chatbot" />
       <div
         style={{
@@ -55,7 +55,7 @@ const Chat = () => {
           {currentName}
         </p>
       </div>
-    </div>
+    </>
   );
   return (
     <div className={classes.chat}>

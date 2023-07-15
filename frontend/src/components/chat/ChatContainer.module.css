@@ -6,19 +6,118 @@
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
     overflow: hidden;
 }
 .chatHeader{
-    height: 60px;
+    height: 8%;
     width: 100%;
-    background-color: rgb(42, 39, 39);
+    background-color: rgb(44,44,51);
     display: flex;
     align-items: center;
-    /* justify-content: space; */
-    /* margin-left: 100px; */
     color: wheat;
     gap: 5rem;
     padding: 0.5rem;
     
+}
+.chatBody {
+    height: 83%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    overflow: hidden;
+    position: relative; /* Add this line to make the ::before pseudo-element work properly */
+  }
+  
+  .chatBody::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/chatbg.jpg') no-repeat center center/cover;
+    opacity: 0.2;
+  }
+  
+.chatFooter{
+    height: 9%;
+    width: 100%;
+    background-color: rgb(44,44,45);
+    display: flex;
+    align-items: center;
+    color: wheat;
+    padding: 0.5rem;
+    position: sticky;
+    bottom: 0;
+}
+.emojji{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emojji svg:hover{
+    cursor: pointer;
+    background-color: rgb(30, 29, 29);
+    filter: invert(1);
+    border-radius: 50%;
+}
+.input{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input input{
+    height: 100%;
+    width: 100%;
+    color: white;
+    background-color: rgb(69, 68, 68);
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+}
+.input input:focus{
+    border: 2px solid rgb(128, 57, 242);
+    background-color: rgb(39, 33, 33);
+}
+.send {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.send button{
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background-color: rgb(135,116,225);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.send button:hover{
+    background-color: rgb(135,116,225, 0.8);
+}
+.send button svg{
+    height: 60%;
+}
+.emojiPicker{
+    position:absolute;
+    bottom: 43px;
+    left: 55px;
 }

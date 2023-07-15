@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import classes from "./Contacts.module.css";
 import cookies from 'react-cookies'
 import logo from "../../assets/chat.png"; 
+import { ToastContainer,toast } from "react-toastify";
 const Contacts = (props) => {
 const [other,setOther]=useState([])
 const [me,setMe]=useState({
@@ -70,10 +71,11 @@ props.setCurrentName(me.name);
       </div>
       <div className={classes.feature}>
           <button onClick={()=>{navigate('/avatar')}}>Change Avatar</button>
-          <button>Payment</button>
+          <button onClick={()=>{toast.info("This section is under development")}} >Payment</button>
           <button onClick={()=>{cookies.remove("jwt")}}>Logout</button>
       </div>
       </div> 
+      <ToastContainer theme="dark"/>
     </>
   );
 };
