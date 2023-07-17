@@ -37,6 +37,7 @@ const content = (
         }}
         className={classes.user}
         onClick={() => {
+          props.setCurrentChat(user);
           props.setUserSelection(user._id);
         }}
         key={user._id}
@@ -49,7 +50,7 @@ const content = (
     ))}
   </div>
 );
-props.setCurrentName(me.name);
+// props.setCurrentName(me.name);
   // console.log(props.userSelection)
   return (
     <>

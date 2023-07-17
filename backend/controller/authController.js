@@ -1,4 +1,4 @@
-const userModel = require("../../model/userModel");
+const userModel = require("../model/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const postRegister = async (req, res, next) => {
@@ -60,7 +60,7 @@ const postAvatar=(req,res)=>{
 const getAllUsers=async(req,res)=>{
     try{
         const users=await userModel.find({},{password:0});
-        console.log(users)
+        // console.log(users)
         res.status(200).json({users});
     }
     catch(err){

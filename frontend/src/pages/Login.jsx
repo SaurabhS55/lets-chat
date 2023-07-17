@@ -58,7 +58,7 @@ export default Login
 
 export const loginAction=async({request,params})=>{
   const data=await request.formData();
-  console.log(data)
+  // console.log(data)
   localStorage.setItem('email',JSON.stringify(data.get('email')))
   try{
     const res=await axios.post('http://localhost:5000/user/login',{

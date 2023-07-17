@@ -1,4 +1,4 @@
-const {postRegister,postLogin,postAvatar,getAllUsers} =require('./route')
+const {postRegister,postLogin,postAvatar,getAllUsers} =require('../authController')
 const router=require('express').Router();
 const {validateUser}=require('../middleware/authMiddleware')
 router.route('/register')

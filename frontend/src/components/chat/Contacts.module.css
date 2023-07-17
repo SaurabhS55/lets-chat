@@ -43,7 +43,7 @@
     background-color: rgb(41, 39, 44);
 }
 .prof{
-    height: 20%;
+    height: 25%;
     width: 100%;
     background-color: rgb(39, 36, 36);
     border-top-right-radius: 15px;
@@ -87,6 +87,9 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+}
+.feature button:hover{
+    background-color: rgba(252, 252, 252);
 }
 .contactHeader{
     display: flex;

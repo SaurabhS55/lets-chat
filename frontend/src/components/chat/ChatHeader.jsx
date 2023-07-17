@@ -4,9 +4,9 @@ const ChatHeader = ({cuser}) => {
   return (
     <>
         <div className={classes.userImg}>
-            <img src={cuser[0].avatar} height="55px" style={{ borderRadius: "55px" }} alt={cuser[0].name} />
+            <img src={cuser.avatar} height="55px" style={{ borderRadius: "55px" }} alt={cuser.name} />
         </div>
-        <h3 className={classes.userName}>{cuser[0].name}</h3>
+        <h3 className={classes.userName}>{cuser.name}</h3>
     </>
   )
 }
