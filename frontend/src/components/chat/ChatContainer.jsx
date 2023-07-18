@@ -25,25 +25,31 @@ const ChatContainer = (props) => {
   };
   // ...
 
-React.useEffect(() => {
-  if (props.currentChat === undefined) return;
-    const obj = {
-      from: props.senderId,
-      to: props.data._id,
+  React.useEffect(() => {
+    if (props.data === undefined) return;
+  
+    const fetchChatMessages = async () => {
+      const obj = {
+        from: props.senderId,
+        to: props.data._id,
+      };
+  
+      try {
+        const res = await axios.post(
+          "http://localhost:5000/message/receive",
+          obj,
+          { withCredentials: true }
+        );
+        console.log("At receiver ",res.data);
+        setChat(res.data);
+      } catch (err) {
+        console.log(err);
+      }
     };
-
-    try {
-      const res =axios.post(
-        "http://localhost:5000/message/receive",
-        obj,
-        { withCredentials: true }
-      );
-        console.log(res.data);
-      setChat(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-}, [props.senderId, props.data._id, props.currentChat]);
+  
+    fetchChatMessages();
+  }, [props.senderId, props.data._id, props.data]);
+  
 
 // ...
 
@@ -59,11 +65,11 @@ React.useEffect(() => {
       }
     });
   };
-  const messageHandler = (e) => {
-    e.preventDefault();
 
-    // console.log(data)
-    const res = axios.post(
+  const messageHandler = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post(
       "http://localhost:5000/message/send",
       {
         from: props.senderId,
@@ -72,24 +78,25 @@ React.useEffect(() => {
       },
       { withCredentials: true }
     );
-    res
-      .then((res) => {
-        // console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    console.log("At sender ",res.data);
+
     props.socket.current.emit("send-msg", {
       from: props.senderId,
       to: props.data._id,
       message: message,
     });
-    const m=[...chat]
-    m.push({fromSelf:true,message:message})
-    setChat(m)
-    // setMessage("");
-    // setIsValidMessage(false);
-  };
+
+    const m = [...chat];
+    m.push({ fromSelf: true, message: message });
+    setChat(m);
+    setMessage("");
+    setIsValidMessage(false);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
   React.useEffect(() => {
     if(props.socket.current){
       props.socket.current.on("recieve-msg", (data) => {
@@ -98,9 +105,11 @@ React.useEffect(() => {
       });
     }
   }, []);
+
   React.useEffect(() => {
       arrivalMessage&&setChat((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage]);
+
   React.useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
@@ -118,11 +127,11 @@ React.useEffect(() => {
       </div>
       <div className={classes.chatBody}>
         {/* console.log(chat[0].id) */}
-        {chat.map((message) => (
+        {chat.map((m) => (
             <div ref={scrollRef} key={uuidv4()}>
-              <div className={`${classes.message}`} style={{justifyContent:(message.fromSelf)?"end":"start"}}>
-                <div className={classes.content} style={{backgroundColor:(message.fromSelf)?"rgb(126,109,209)":"rgb(69, 68, 68)"}}>
-                  <p>{message.message}</p>
+              <div className={`${classes.message}`} style={{justifyContent:(m.fromSelf)?"end":"start"}}>
+                <div className={classes.content} style={{backgroundColor:(m.fromSelf)?"rgb(126,109,209)":"rgb(69, 68, 68)"}}>
+                  <p>{m.message}</p>
                 </div>
               </div>
             </div>
