@@ -4,6 +4,7 @@ import classes from "./Contacts.module.css";
 import cookies from 'react-cookies'
 import logo from "../../assets/chat.png"; 
 import { ToastContainer,toast } from "react-toastify";
+import {MdOutlineArrowForwardIos} from 'react-icons/md'
 const Contacts = (props) => {
 const [other,setOther]=useState([])
 const [me,setMe]=useState({
@@ -58,6 +59,7 @@ const content = (
     <div className={classes.contactHeader}>
       <img src={logo} width="50px" alt="logo" />
       <h3>LetsChat</h3>
+      <MdOutlineArrowForwardIos  color="white"/>
     </div>
       {
         content

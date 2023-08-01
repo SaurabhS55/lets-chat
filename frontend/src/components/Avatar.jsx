@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 import { ToastContainer,toast } from 'react-toastify'
 import customLoader from '../assets/loader.gif'
 const Avatar = () => {
-    const api = `https://api.multiavatar.com/4645646`;
+    const api="https://api.multiavatar.com/4645646"
     const [avatar,setAvatar]=useState([])
     const [loader,setLoader]=useState(true)
     const [selectAvatar,setSelectAvatar]=useState(undefined)
@@ -45,7 +45,7 @@ useEffect(()=>{
         else{
             localStorage.setItem("isAvatar",JSON.stringify(true))
         const d=avatar[selectAvatar]
-            const res=axios.post('http://localhost:5000/user/avatar',{email:JSON.parse(localStorage.getItem("email")),avatar:`data:image/svg+xml;base64,${d}`},{
+            const res=axios.post('https://letschat-yr3v.onrender.com/user/avatar',{email:JSON.parse(localStorage.getItem("email")),avatar:`data:image/svg+xml;base64,${d}`},{
                 withCredentials:true
             })
             res.then((res)=>{

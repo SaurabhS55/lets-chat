@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const postRegister = async (req, res, next) => {
     try{
-        const data=await userModel.create({...req.body,avatar:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCVGv_UuZYSFHHJvsXgIZduF0QC1NCe_f3BXBYUwrPfw&s"});
+        const data=await userModel.create({...req.body,avatar:"https://cdn-icons-png.flaticon.com/512/1077/1077114.png"});
         console.log(data);
         res.status(201).json({message:"User Created"});
         }

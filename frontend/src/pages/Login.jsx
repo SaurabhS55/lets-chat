@@ -10,6 +10,7 @@ const Login = () => {
     password:''
   })
   const submit=useSubmit()
+  console.log(process.env)
   const handleChange=(e)=>{
     setLogin({...login,[e.target.name]:e.target.value})
   }
@@ -61,7 +62,7 @@ export const loginAction=async({request,params})=>{
   // console.log(data)
   localStorage.setItem('email',JSON.stringify(data.get('email')))
   try{
-    const res=await axios.post('http://localhost:5000/user/login',{
+    const res=await axios.post('https://letschat-yr3v.onrender.com/user/login',{
       'email':data.get('email'),
       'password':data.get('password')
     },{
@@ -72,7 +73,7 @@ export const loginAction=async({request,params})=>{
     }
     else{
       toast.success('Login Successful')
-      if(JSON.parse(localStorage.getItem('isAvatar')!==null)){
+      if(JSON.parse(localStorage.getItem('isAvatar'))){
         return redirect('/')
       }
       return redirect('/avatar');

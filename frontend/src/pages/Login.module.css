@@ -10,7 +10,10 @@
     gap: 2rem;
     color: white;
     background-color: rgb(24,24,24);
-    margin: 3.5rem auto;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     box-shadow: 0 0 10px rgba(81, 75, 75, 0.5);
 }
 .brand{
@@ -71,4 +74,19 @@
 .already a{
     color: rgb(130, 50, 164);
     text-decoration: none;
+}
+
+
+/* css code for handsets */
+@media screen and (max-width: 600px){
+    .container{
+        width: 90%;
+        
+    }
+    .login input{
+        width: 100%;
+    }
+    .login button{
+        width: 100%;
+    }
 }

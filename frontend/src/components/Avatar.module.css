@@ -59,3 +59,24 @@
 .btn:hover{
     background-color: #5f3dc4;
 }
+
+/* mobile handset css */
+@media only screen and (max-width: 600px) {
+    .avatarContainer{
+        width: 350px;
+        height: 100px;
+    }
+    .avatar img{
+        width: 50px;
+        height: 50px;
+    }
+    .btn{
+        width: 150px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    .loader img{
+        width: 250px;
+        height: 250px;
+    }
+}

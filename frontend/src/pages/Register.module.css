@@ -9,8 +9,11 @@
     border-radius: 1.5rem;
     gap: 2rem;
     color: white;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     background-color: rgb(24,24,24);
-    margin: 3.5rem auto;
     box-shadow: 0 0 10px rgba(81, 75, 75, 0.5);
 }
 .brand{
@@ -71,4 +74,32 @@
 .already a{
     color: rgb(130, 50, 164);
     text-decoration: none;
+}
+
+/* Media Query for Mobile Phones */
+@media screen and (max-width: 480px) {
+    .container{
+        width: 90%;
+    }
+    .register input{
+        width: 100%;
+    }
+    .register button{
+        width: 100%;
+    }
+  .already{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1.13rem;
+    }
+    .already a{
+        color: rgb(130, 50, 164);
+        text-decoration: none;
+
+  }
+    .register button:hover{
+        background-color: rgb(148, 15, 205);
+    }
 }

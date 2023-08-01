@@ -33,13 +33,13 @@ const Chat = () => {
 
   useEffect(() => {
     if (senderId){
-      socket.current = io("http://localhost:5000");
+      socket.current = io(process.env.BACKEND_CONN);
       socket.current.emit("add-user", senderId);
     }
   }, [senderId]);
 
   useEffect(() => {
-    const res = axios.get("http://localhost:5000/user/", {
+    const res = axios.get("https://letschat-yr3v.onrender.com/user/", {
       withCredentials: true,
     });
     res
@@ -109,12 +109,8 @@ const Chat = () => {
 
 export default Chat;
 export const chatLoader = async () => {
-  const res = await axios.get("http://localhost:5000/user/users", {
+  const res = await axios.get("https://letschat-yr3v.onrender.com/user/users", {
     withCredentials: true,
   });
-  // if(!res.status===200){
-  //   throw new Error("Something wents wrong")
-  // }
-  // console.log(json(res.data))
   return json(res.data);
 };
