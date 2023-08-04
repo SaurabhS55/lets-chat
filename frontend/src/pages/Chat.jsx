@@ -39,7 +39,7 @@ const Chat = () => {
   }, [senderId]);
 
   useEffect(() => {
-    const res = axios.get("https://letschat-yr3v.onrender.com/user/", {
+    const res = axios.get("https://letschat-972j.onrender.com/user/", {
       withCredentials: true,
     });
     res
@@ -109,7 +109,7 @@ const Chat = () => {
 
 export default Chat;
 export const chatLoader = async () => {
-  const res = await axios.get("https://letschat-yr3v.onrender.com/user/users", {
+  const res = await axios.get("https://letschat-972j.onrender.com/user/users", {
     withCredentials: true,
   });
   return json(res.data);

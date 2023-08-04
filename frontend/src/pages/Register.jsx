@@ -85,7 +85,7 @@ export const registerAction=async ({request,params})=>{
     }
     try{
     console.log("Inside action ",obj)
-    const res=await axios.post('https://letschat-yr3v.onrender.com/user/register',obj,{
+    const res=await axios.post('https://letschat-972j.onrender.com/user/register',obj,{
         withCredentials:true
     });
     console.log(res.data);

@@ -45,7 +45,7 @@ useEffect(()=>{
         else{
             localStorage.setItem("isAvatar",JSON.stringify(true))
         const d=avatar[selectAvatar]
-            const res=axios.post('https://letschat-yr3v.onrender.com/user/avatar',{email:JSON.parse(localStorage.getItem("email")),avatar:`data:image/svg+xml;base64,${d}`},{
+            const res=axios.post('https://letschat-972j.onrender.com/user/avatar',{email:JSON.parse(localStorage.getItem("email")),avatar:`data:image/svg+xml;base64,${d}`},{
                 withCredentials:true
             })
             res.then((res)=>{

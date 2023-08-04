@@ -36,7 +36,7 @@ const ChatContainer = (props) => {
   
       try {
         const res = await axios.post(
-          "https://letschat-yr3v.onrender.com/message/receive",
+          "https://letschat-972j.onrender.com/message/receive",
           obj,
           { withCredentials: true }
         );
@@ -70,7 +70,7 @@ const ChatContainer = (props) => {
   e.preventDefault();
   try {
     const res = await axios.post(
-      "https://letschat-yr3v.onrender.com/message/send",
+      "https://letschat-972j.onrender.com/message/send",
       {
         from: props.senderId,
         to: props.data._id,
