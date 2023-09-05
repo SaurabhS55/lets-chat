@@ -8,7 +8,7 @@ const router2=require('./controller/Router/messageRoute');
 const cookieParser=require('cookie-parser');
 const socket=require('socket.io');
 app.use(cors({
-    origin:['lets-chat-9qes.vercel.app'],
+    origin:['https://lets-chat-9qes.vercel.app/'],
     credentials:true,
     methods:['GET','POST'],
 }));
