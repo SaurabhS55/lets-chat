@@ -32,7 +32,7 @@ const ChatContainer = (props) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/message/receive",
+        `${process.env.REACT_APP_BACKEND_CONN}/message/receive`,
         obj,
         { withCredentials: true }
       );
@@ -70,7 +70,7 @@ const ChatContainer = (props) => {
   e.preventDefault();
   try {
     const res = await axios.post(
-      "http://localhost:5000/message/send",
+      `${process.env.REACT_APP_BACKEND_CONN}/message/send`,
       {
         from: props.senderId,
         to: props.data._id,

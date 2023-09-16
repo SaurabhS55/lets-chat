@@ -33,13 +33,13 @@ const Chat = () => {
 
   useEffect(() => {
     if (senderId){
-      socket.current = io(process.env.BACKEND_CONN);
+      socket.current = io(process.env.REACT_APP_BACKEND_CONN);
       socket.current.emit("add-user", senderId);
     }
   }, [senderId]);
 
   useEffect(() => {
-    const res = axios.get("http://localhost:5000/user/", {
+    const res = axios.get(`${process.env.REACT_APP_BACKEND_CONN}/user/`, {
       withCredentials: true,
     });
     res
@@ -109,7 +109,7 @@ const Chat = () => {
 
 export default Chat;
 export const chatLoader = async () => {
-  const res = await axios.get("http://localhost:5000/user/users", {
+  const res = await axios.get(`${process.env.REACT_APP_BACKEND_CONN}/user/users`, {
     withCredentials: true,
   });
   return json(res.data);

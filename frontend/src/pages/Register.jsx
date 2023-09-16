@@ -85,7 +85,7 @@ export const registerAction=async ({request,params})=>{
     }
     try{
     console.log("Inside action ",obj)
-    const res=await axios.post('http://localhost:5000/user/register',obj,{
+    const res=await axios.post(`${process.env.REACT_APP_BACKEND_CONN}/user/register`,obj,{
         withCredentials:true
     });
     console.log(res.data);
