@@ -24,31 +24,31 @@ const ChatContainer = (props) => {
     }
   };
   // ...
+  const fetchChatMessages = async () => {
+    const obj = {
+      from: props.senderId,
+      to: props.data._id,
+    };
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/message/receive",
+        obj,
+        { withCredentials: true }
+      );
+      console.log("At receiver ",res.data);
+      setChat(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   React.useEffect(() => {
-    if (props.data === undefined) return;
+    // if (props.data === undefined) return;
   
-    const fetchChatMessages = async () => {
-      const obj = {
-        from: props.senderId,
-        to: props.data._id,
-      };
-  
-      try {
-        const res = await axios.post(
-          "https://letschat-972j.onrender.com/message/receive",
-          obj,
-          { withCredentials: true }
-        );
-        console.log("At receiver ",res.data);
-        setChat(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
   
     fetchChatMessages();
-  }, [props.senderId, props.data._id, props.data]);
+  }, [props.data, props.senderId, props.data._id]);
   
 
 // ...
@@ -70,7 +70,7 @@ const ChatContainer = (props) => {
   e.preventDefault();
   try {
     const res = await axios.post(
-      "https://letschat-972j.onrender.com/message/send",
+      "http://localhost:5000/message/send",
       {
         from: props.senderId,
         to: props.data._id,
@@ -100,11 +100,11 @@ const ChatContainer = (props) => {
   React.useEffect(() => {
     if(props.socket.current){
       props.socket.current.on("recieve-msg", (data) => {
-        // console.log(data);
+        console.log(data);
         setArrivalMessage({fromSelf:false,message:data});
       });
     }
-  }, []);
+  }, [props.socket.current]);
 
   React.useEffect(() => {
       arrivalMessage&&setChat((prev) => [...prev, arrivalMessage]);

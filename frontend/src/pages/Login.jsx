@@ -10,7 +10,7 @@ const Login = () => {
     password:''
   })
   const submit=useSubmit()
-  console.log(process.env)
+  // console.log(process.env)
   const handleChange=(e)=>{
     setLogin({...login,[e.target.name]:e.target.value})
   }
@@ -62,7 +62,7 @@ export const loginAction=async({request,params})=>{
   // console.log(data)
   localStorage.setItem('email',JSON.stringify(data.get('email')))
   try{
-    const res=await axios.post('https://letschat-972j.onrender.com/user/login',{
+    const res=await axios.post('http://localhost:5000/user/login',{
       'email':data.get('email'),
       'password':data.get('password')
     },{
