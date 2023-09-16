@@ -8,7 +8,7 @@ const router2=require('./controller/Router/messageRoute');
 const cookieParser=require('cookie-parser');
 const socket=require('socket.io');
 app.use(cors({
-    origin:'https://letschat-six.vercel.app/',
+    origin:'https://letschat-six.vercel.app',
     credentials:true,
     methods:['GET','POST'],
 }));
@@ -18,14 +18,14 @@ app.get('/', function(req, res) {
 });
 app.use(express.json())
 const server=app.listen(port,()=>{
-    console.log(`app running on https://letschat-six.vercel.app/`)
+    console.log(`app running on https://letschat-six.vercel.app`)
 })
 app.use(cookieParser())
 app.use('/user',router1)
 app.use('/message',router2)
 const io=socket(server,{
     cors:{
-        origin:'https://letschat-six.vercel.app/',
+        origin:'https://letschat-six.vercel.app',
         credentials:true,
         }
     })
