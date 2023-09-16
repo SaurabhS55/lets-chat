@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
 });
 app.use(express.json())
 const server=app.listen(port,()=>{
-    console.log(`app running on http://localhost:${port}/`)
+    console.log(`app running on https://letschat-six.vercel.app/`)
 })
 app.use(cookieParser())
 app.use('/user',router1)
