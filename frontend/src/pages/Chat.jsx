@@ -8,17 +8,11 @@ import ChatContainer from "../components/chat/ChatContainer";
 import { io } from "socket.io-client";
 const Chat = () => {
   const socket = useRef();
-  const [session, setSession] = useState(0);
   const [userSlection, setUserSelection] = useState(undefined);
   const [currentName, setCurrentName] = useState("");
   const [currentChat, setCurrentChat] = useState(undefined);
   const [senderId, setSenderId] = useState(undefined);
   const loaderData = useLoaderData();
-
-  // console.log(loaderData.users)
-  setInterval(() => {
-    setSession(session + 1);
-  }, 10000);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -38,19 +32,7 @@ const Chat = () => {
     }
   }, [senderId]);
 
-  useEffect(() => {
-    const res = axios.get(`${process.env.REACT_APP_BACKEND_CONN}/user/`, {
-      withCredentials: true,
-    });
-    res
-      .then((res) => {
-        // console.log(res.data)
-      })
-      .catch((err) => {
-        // console.log(err);
-        navigate("/login");
-      });
-  }, [session, navigate]);
+  
 
   const handleSelection = (id) => {
     setUserSelection(id);

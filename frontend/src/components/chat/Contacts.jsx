@@ -75,7 +75,7 @@ const content = (
       <div className={classes.feature}>
           <button onClick={()=>{navigate('/avatar')}}>Change Avatar</button>
           <button onClick={()=>{toast.info("This section is under development")}} >Payment</button>
-          <button onClick={()=>{cookies.remove("jwt")}}>Logout</button>
+          <button onClick={()=>navigate('/login')}>Logout</button>
       </div>
       </div> 
       <ToastContainer theme="dark"/>
