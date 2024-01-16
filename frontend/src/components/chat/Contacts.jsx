@@ -70,7 +70,7 @@ const content = (
             <div className={classes.userImg}>
                 <img src={me.avatar} height="80px" alt={me.name} />
             </div>
-            <h3 className={classes.userName}>{(me.name.length>12)?me.name.substring(0,12)+" ...":me.name}</h3>
+            <h3 className={classes.userName}>{(me.name?.length>12)?me.name.substring(0,12)+" ...":me.name}</h3>
       </div>
       <div className={classes.feature}>
           <button onClick={()=>{navigate('/avatar')}}>Change Avatar</button>
