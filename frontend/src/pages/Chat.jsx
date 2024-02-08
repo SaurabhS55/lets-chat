@@ -17,12 +17,18 @@ const Chat = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const senderemail = JSON.parse(localStorage?.getItem("email"));
-    const sender = loaderData.users?.filter((user) => {
-      return user.email === senderemail;
-    });
-    const Id = sender[0]?._id;
-    setCurrentName(sender[0]?.name);
-    setSenderId(Id);
+      const t=loaderData.users;
+      if (t===undefined || t===null || t.length===0|| senderemail===null || senderemail===undefined || senderemail==="") {
+        navigate("/login");
+      }
+      else{
+      const sender = t.filter((user) => {
+        return user.email === senderemail;
+      });
+      const Id = sender[0]?._id;
+      setCurrentName(sender[0]?.name);
+      setSenderId(Id);
+    }
   }, [senderId, loaderData.users]);
 
   useEffect(() => {
@@ -91,6 +97,10 @@ const Chat = () => {
 
 export default Chat;
 export const chatLoader = async () => {
+  const senderemail = JSON.parse(localStorage?.getItem("email"));
+    if (senderemail===null || senderemail===undefined || senderemail==="") {
+      return json({ users: [] });
+    }
   const res = await axios.get(`${process.env.REACT_APP_BACKEND_CONN}/user/users`, {
     withCredentials: true,
   });

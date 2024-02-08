@@ -61,6 +61,8 @@ export const loginAction=async({request,params})=>{
   const data=await request.formData();
   // console.log(data)
   localStorage.setItem('email',JSON.stringify(data.get('email')))
+  console.log(data.get('email'))
+  console.log(process.env.REACT_APP_BACKEND_CONN)
   try{
     const res=await axios.post(`${process.env.REACT_APP_BACKEND_CONN}/user/login`,{
       'email':data.get('email'),
@@ -70,6 +72,7 @@ export const loginAction=async({request,params})=>{
     })
     if(!res.status===200){
       throw new Error('User not found..')
+      toast.error('User not found..')
     }
     else{
       toast.success('Login Successful')
